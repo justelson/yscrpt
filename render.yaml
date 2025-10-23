@@ -3,6 +3,7 @@ services:
     name: youtube-transcript-backend
     env: node
     plan: free
+    rootDir: youtube-transcript-app
     buildCommand: npm install
     startCommand: npm run server
     envVars:
