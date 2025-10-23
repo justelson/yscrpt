@@ -1,0 +1,27 @@
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "package.json",
+      "use": "@vercel/static-build",
+      "config": {
+        "distDir": "dist"
+      }
+    }
+  ],
+  "routes": [
+    {
+      "src": "/api/(.*)",
+      "dest": "https://your-render-backend-url.onrender.com/api/$1"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/index.html"
+    }
+  ],
+  "env": {
+    "VITE_GOOGLE_CLIENT_ID": "@vite_google_client_id",
+    "VITE_INSTANTDB_APP_ID": "@vite_instantdb_app_id",
+    "VITE_API_URL": "@vite_api_url"
+  }
+}

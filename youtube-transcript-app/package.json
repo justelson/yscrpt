@@ -9,7 +9,9 @@
     "dev:all": "concurrently \"npm run dev\" \"npm run server\"",
     "build": "vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "start": "node server/index.js",
+    "build:vercel": "vite build"
   },
   "dependencies": {
     "@distube/ytdl-core": "^4.16.12",
