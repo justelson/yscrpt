@@ -1,11 +1,11 @@
 services:
   - type: web
-    name: youtube-transcript-backend
+    name: youtube-transcript-frontend
     env: node
     plan: free
     rootDir: youtube-transcript-app
-    buildCommand: npm install
-    startCommand: npm run server
+    buildCommand: npm install && npm run build
+    startCommand: npm run preview
     envVars:
       - key: NODE_ENV
         value: production
