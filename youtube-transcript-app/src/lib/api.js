@@ -32,7 +32,7 @@ class APIClient {
             return data;
         } catch (error) {
             if (error.message.includes('Failed to fetch') || error.message.includes('NetworkError')) {
-                throw new Error('Cannot connect to server. Make sure backend is running on http://localhost:3001');
+                throw new Error(`Cannot connect to server. Make sure backend is running on ${API_URL}`);
             }
             throw error;
         }

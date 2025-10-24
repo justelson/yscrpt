@@ -2,6 +2,8 @@ import express from 'express';
 import cors from 'cors';
 import session from 'express-session';
 import dotenv from 'dotenv';
+import path from 'path';
+import { fileURLToPath } from 'url';
 import { Innertube } from 'youtubei.js';
 import connectDB from './db.js';
 import User from './models/User.js';
@@ -10,6 +12,9 @@ import AISettings from './models/AISettings.js';
 import Memory from './models/Memory.js';
 
 dotenv.config();
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 const app = express();
 const PORT = process.env.PORT || 3001;
@@ -465,7 +470,7 @@ app.post('/api/memories', requireAuth, async (req, res) => {
         console.log('Type:', req.body.type);
         console.log('Title:', req.body.title);
         console.log('Messages:', req.body.messages ? `Array with ${req.body.messages.length} items` : 'undefined');
-        
+
         // Log first message if exists
         if (req.body.messages && req.body.messages.length > 0) {
             console.log('First message:', JSON.stringify(req.body.messages[0], null, 2));
@@ -517,10 +522,10 @@ app.get('/api/memories', requireAuth, async (req, res) => {
         const memories = await Memory.find({ userId: req.session.userId })
             .sort({ createdAt: -1 })
             .select('-__v');
-        
+
         console.log('=== GET MEMORIES ===');
         console.log('Total memories:', memories.length);
-        
+
         // Log chat memories specifically
         const chatMemories = memories.filter(m => m.type === 'chat');
         console.log('Chat memories:', chatMemories.length);
@@ -533,7 +538,7 @@ app.get('/api/memories', requireAuth, async (req, res) => {
                 firstMessage: chatMemories[0].messages?.[0],
             });
         }
-        
+
         res.json(memories);
     } catch (error) {
         console.error('Get memories error:', error);
@@ -557,6 +562,16 @@ app.delete('/api/memories/:id', requireAuth, async (req, res) => {
         res.status(500).json({ error: 'Failed to delete memory' });
     }
 });
+
+// Serve static files from the React app build directory
+if (process.env.NODE_ENV === 'production') {
+    app.use(express.static(path.join(__dirname, '../dist')));
+
+    // Handle React routing, return all requests to React app
+    app.get('*', (req, res) => {
+        res.sendFile(path.join(__dirname, '../dist/index.html'));
+    });
+}
 
 app.listen(PORT, () => {
     console.log(`Server running on http://localhost:${PORT}`);

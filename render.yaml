@@ -11,14 +11,8 @@ services:
         value: production
       - key: PORT
         value: 10000
-      - key: MONGODB_URI
-        fromDatabase:
-          name: youtube-transcript-db
-          property: connectionString
-      - key: SESSION_SECRET
-        generateValue: true
-      - key: CLIENT_URL
-        value: https://yscrpt.vercel.app 
+      - key: VITE_API_URL
+        value: https://yscrpt.onrender.com
       - key: VITE_GOOGLE_CLIENT_ID
         value: 548181107797-q318cv5b7uanogifcsf5uqitke6v0sda.apps.googleusercontent.com
       - key: VITE_GOOGLE_CLIENT_SECRET
