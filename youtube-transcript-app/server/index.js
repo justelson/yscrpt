@@ -26,21 +26,26 @@ app.use(cors({
 app.use(express.json());
 
 // Session configuration with MongoStore (connects to MongoDB automatically)
+console.log('=== MONGODB CONFIGURATION ===');
+console.log('MONGODB_URI exists:', !!process.env.MONGODB_URI);
+console.log('NODE_ENV:', process.env.NODE_ENV);
+console.log('CLIENT_URL:', clientURL);
+
 const mongoStore = MongoStore.create({
     mongoUrl: process.env.MONGODB_URI || 'mongodb://localhost:27017/youtube-transcript-app',
     touchAfter: 24 * 3600, // Lazy session update (in seconds)
 });
 
 mongoStore.on('error', (error) => {
-    console.error('MongoStore error:', error);
+    console.error('=== MongoStore ERROR ===', error);
 });
 
 mongoStore.on('create', (sessionId) => {
-    console.log('Session created:', sessionId);
+    console.log('=== Session created:', sessionId);
 });
 
 mongoStore.on('update', (sessionId) => {
-    console.log('Session updated:', sessionId);
+    console.log('=== Session updated:', sessionId);
 });
 
 app.use(session({
@@ -144,25 +149,15 @@ app.post('/api/auth/signin', async (req, res) => {
             return res.status(401).json({ error: 'Invalid email or password' });
         }
 
+        // Set user ID in session
         req.session.userId = user._id;
         
-        // Explicitly save session before responding
-        req.session.save((err) => {
-            if (err) {
-                console.error('=== SESSION SAVE ERROR ===');
-                console.error('Error:', err);
-                console.error('Error stack:', err.stack);
-                console.error('MongoDB URI:', process.env.MONGODB_URI ? 'Set' : 'Not set');
-                return res.status(500).json({ error: 'Failed to save session', details: err.message });
-            }
-            
-            console.log('=== SESSION SAVED SUCCESSFULLY ===');
-            console.log('Session userId:', req.session.userId);
-            console.log('Session ID:', req.sessionID);
-            console.log('Session cookie:', req.session.cookie);
-            
-            res.json({ user: { id: user._id, email: user.email, name: user.name, photoURL: user.photoURL } });
-        });
+        console.log('=== SESSION SET ===');
+        console.log('Session userId:', req.session.userId);
+        console.log('Session ID:', req.sessionID);
+        
+        // Session will be saved automatically by express-session
+        res.json({ user: { id: user._id, email: user.email, name: user.name, photoURL: user.photoURL } });
     } catch (error) {
         console.error('Sign in error:', error);
         res.status(500).json({ error: 'Authentication failed' });
