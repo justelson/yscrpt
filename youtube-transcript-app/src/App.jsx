@@ -24,6 +24,7 @@ import './index.css';
 function AppContent() {
     const [user, setUser] = useState(null);
     const [isLoading, setIsLoading] = useState(true);
+    const location = useLocation();
 
     // Check authentication on mount
     useEffect(() => {
@@ -79,9 +80,15 @@ function AppContent() {
                 <Route path="/features" element={<Features />} />
                 <Route path="/how-it-works" element={<HowItWorks />} />
                 <Route path="/privacy" element={<Privacy />} />
-                <Route path="*" element={<Navigate to="/" replace />} />
+                <Route path="*" element={<Navigate to="/signin" replace />} />
             </Routes>
         );
+    }
+
+    // If user is authenticated and tries to access landing/auth pages, redirect to app
+    const publicPages = ['/', '/signin', '/signup', '/login', '/about', '/features', '/how-it-works', '/privacy'];
+    if (publicPages.includes(location.pathname)) {
+        return <Navigate to="/fetch" replace />;
     }
 
     return (
