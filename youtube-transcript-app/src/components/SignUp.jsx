@@ -8,7 +8,7 @@ import { TopBar } from './TopBar';
 import { initiateGoogleSignIn } from '../lib/googleAuth';
 import api from '../lib/api';
 
-export function SignUp() {
+export function SignUp({ onSuccess }) {
     const navigate = useNavigate();
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
@@ -27,6 +27,12 @@ export function SignUp() {
 
         try {
             const { user } = await api.signUp(email, password, name);
+            
+            // Update App state with user
+            if (onSuccess) {
+                onSuccess(user);
+            }
+            
             // Redirect to app
             navigate('/fetch');
         } catch (error) {

@@ -72,8 +72,8 @@ function AppContent() {
             <Routes>
                 <Route path="/" element={<LandingPage />} />
                 <Route path="/login" element={<Login />} />
-                <Route path="/signin" element={<SignIn />} />
-                <Route path="/signup" element={<SignUp />} />
+                <Route path="/signin" element={<SignIn onSuccess={setUser} />} />
+                <Route path="/signup" element={<SignUp onSuccess={setUser} />} />
                 <Route path="/auth/callback" element={<GoogleCallback />} />
                 <Route path="/auth/google-success" element={<GoogleSuccess onSuccess={setUser} />} />
                 <Route path="/about" element={<About />} />
