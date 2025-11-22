@@ -1,6 +1,7 @@
 import express from 'express';
 import cors from 'cors';
 import session from 'express-session';
+import MongoStore from 'connect-mongo';
 import dotenv from 'dotenv';
 import { Innertube } from 'youtubei.js';
 import connectDB from './db.js';
@@ -29,6 +30,10 @@ app.use(session({
     secret: process.env.SESSION_SECRET || 'your-secret-key-change-in-production',
     resave: false,
     saveUninitialized: false,
+    store: MongoStore.create({
+        mongoUrl: process.env.MONGODB_URI || 'mongodb://localhost:27017/youtube-transcript-app',
+        touchAfter: 24 * 3600, // Lazy session update (in seconds)
+    }),
     cookie: {
         secure: process.env.NODE_ENV === 'production',
         httpOnly: true,
