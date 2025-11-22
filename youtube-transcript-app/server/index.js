@@ -4,7 +4,7 @@ import session from 'express-session';
 import MongoStore from 'connect-mongo';
 import dotenv from 'dotenv';
 import { Innertube } from 'youtubei.js';
-import './db.js';
+import connectDB from './db.js';
 import User from './models/User.js';
 import Transcript from './models/Transcript.js';
 import AISettings from './models/AISettings.js';
