@@ -65,6 +65,7 @@ export function SignUp({ onSuccess }) {
                                         value={name}
                                         onChange={(e) => setName(e.target.value)}
                                         className="pl-10"
+                                        autoComplete="name"
                                     />
                                 </div>
                             </div>
@@ -79,6 +80,7 @@ export function SignUp({ onSuccess }) {
                                         value={email}
                                         onChange={(e) => setEmail(e.target.value)}
                                         className="pl-10"
+                                        autoComplete="email"
                                         required
                                     />
                                 </div>
@@ -94,6 +96,7 @@ export function SignUp({ onSuccess }) {
                                         value={password}
                                         onChange={(e) => setPassword(e.target.value)}
                                         className="pl-10"
+                                        autoComplete="new-password"
                                         required
                                         minLength={6}
                                     />

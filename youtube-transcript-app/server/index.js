@@ -15,17 +15,17 @@ dotenv.config();
 const app = express();
 const PORT = process.env.PORT || 3001;
 
-// Connect to MongoDB
-connectDB();
-
 // Normalize CLIENT_URL by removing trailing slash
 const clientURL = (process.env.CLIENT_URL || 'http://localhost:5173').replace(/\/$/, '');
 
+// CORS must be before session
 app.use(cors({
     origin: clientURL,
     credentials: true,
 }));
 app.use(express.json());
+
+// Session configuration
 app.use(session({
     secret: process.env.SESSION_SECRET || 'your-secret-key-change-in-production',
     resave: false,
@@ -33,14 +33,21 @@ app.use(session({
     store: MongoStore.create({
         mongoUrl: process.env.MONGODB_URI || 'mongodb://localhost:27017/youtube-transcript-app',
         touchAfter: 24 * 3600, // Lazy session update (in seconds)
+        crypto: {
+            secret: process.env.SESSION_SECRET || 'your-secret-key-change-in-production'
+        }
     }),
     cookie: {
         secure: process.env.NODE_ENV === 'production',
         httpOnly: true,
         maxAge: 24 * 60 * 60 * 1000, // 24 hours
         sameSite: process.env.NODE_ENV === 'production' ? 'none' : 'lax', // Allow cross-site cookies in production
+        domain: process.env.NODE_ENV === 'production' ? undefined : undefined, // Let browser handle domain
     },
 }));
+
+// Connect to MongoDB after middleware setup
+connectDB();
 
 // Middleware to check authentication
 const requireAuth = (req, res, next) => {

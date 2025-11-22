@@ -67,6 +67,7 @@ export function SignIn({ onSuccess }) {
                                         value={email}
                                         onChange={(e) => setEmail(e.target.value)}
                                         className="pl-10"
+                                        autoComplete="email"
                                         required
                                     />
                                 </div>
@@ -82,6 +83,7 @@ export function SignIn({ onSuccess }) {
                                         value={password}
                                         onChange={(e) => setPassword(e.target.value)}
                                         className="pl-10"
+                                        autoComplete="current-password"
                                         required
                                         minLength={6}
                                     />
