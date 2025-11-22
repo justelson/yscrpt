@@ -1,5 +1,4 @@
 import { Button } from './ui/button';
-import { HyperText } from './ui/hyper-text';
 import { Video, Heart, Users, Target, Shield, Lightbulb, ArrowRight, Sparkles } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { TopBar } from './TopBar';
@@ -41,10 +40,8 @@ export function About() {
                         <div className="inline-block mb-4 px-4 py-2 bg-primary/10 border border-primary/20">
                             <span className="text-sm font-medium text-primary">Our Story</span>
                         </div>
-                        <h1 className="text-6xl font-bold mb-6">
-                            <HyperText className="text-6xl font-bold bg-gradient-to-r from-foreground to-foreground/70 bg-clip-text text-transparent">
-                                About yscrpt
-                            </HyperText>
+                        <h1 className="text-6xl font-bold mb-6 bg-gradient-to-r from-foreground to-foreground/70 bg-clip-text text-transparent">
+                            About yscrpt
                         </h1>
                         <p className="text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
                             Making YouTube transcripts accessible, searchable, and transformable for everyone
@@ -135,7 +132,7 @@ export function About() {
                     <div className="max-w-6xl mx-auto">
                         <div className="text-center mb-16">
                             <h2 className="text-4xl font-bold mb-4">
-                                <HyperText>What We Stand For</HyperText>
+                                What We Stand For
                             </h2>
                             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
                                 Our core values guide everything we build and every decision we make
