@@ -4,7 +4,7 @@ import session from 'express-session';
 import MongoStore from 'connect-mongo';
 import dotenv from 'dotenv';
 import { Innertube } from 'youtubei.js';
-import connectDB from './db.js';
+import './db.js';
 import User from './models/User.js';
 import Transcript from './models/Transcript.js';
 import AISettings from './models/AISettings.js';
@@ -25,28 +25,38 @@ app.use(cors({
 }));
 app.use(express.json());
 
-// Session configuration
+// Session configuration with MongoStore (connects to MongoDB automatically)
+const mongoStore = MongoStore.create({
+    mongoUrl: process.env.MONGODB_URI || 'mongodb://localhost:27017/youtube-transcript-app',
+    touchAfter: 24 * 3600, // Lazy session update (in seconds)
+});
+
+mongoStore.on('error', (error) => {
+    console.error('MongoStore error:', error);
+});
+
+mongoStore.on('create', (sessionId) => {
+    console.log('Session created:', sessionId);
+});
+
+mongoStore.on('update', (sessionId) => {
+    console.log('Session updated:', sessionId);
+});
+
 app.use(session({
     secret: process.env.SESSION_SECRET || 'your-secret-key-change-in-production',
     resave: false,
     saveUninitialized: false,
-    store: MongoStore.create({
-        mongoUrl: process.env.MONGODB_URI || 'mongodb://localhost:27017/youtube-transcript-app',
-        touchAfter: 24 * 3600, // Lazy session update (in seconds)
-        crypto: {
-            secret: process.env.SESSION_SECRET || 'your-secret-key-change-in-production'
-        }
-    }),
+    store: mongoStore,
     cookie: {
         secure: process.env.NODE_ENV === 'production',
         httpOnly: true,
         maxAge: 24 * 60 * 60 * 1000, // 24 hours
         sameSite: process.env.NODE_ENV === 'production' ? 'none' : 'lax', // Allow cross-site cookies in production
-        domain: process.env.NODE_ENV === 'production' ? undefined : undefined, // Let browser handle domain
     },
 }));
 
-// Connect to MongoDB after middleware setup
+// Connect to MongoDB for app data (separate from session store)
 connectDB();
 
 // Middleware to check authentication
@@ -139,11 +149,14 @@ app.post('/api/auth/signin', async (req, res) => {
         // Explicitly save session before responding
         req.session.save((err) => {
             if (err) {
-                console.error('Session save error:', err);
-                return res.status(500).json({ error: 'Failed to save session' });
+                console.error('=== SESSION SAVE ERROR ===');
+                console.error('Error:', err);
+                console.error('Error stack:', err.stack);
+                console.error('MongoDB URI:', process.env.MONGODB_URI ? 'Set' : 'Not set');
+                return res.status(500).json({ error: 'Failed to save session', details: err.message });
             }
             
-            console.log('Session saved successfully');
+            console.log('=== SESSION SAVED SUCCESSFULLY ===');
             console.log('Session userId:', req.session.userId);
             console.log('Session ID:', req.sessionID);
             console.log('Session cookie:', req.session.cookie);
