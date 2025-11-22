@@ -25,10 +25,13 @@ export function SignIn() {
         setLoading(true);
 
         try {
+            console.log('Attempting sign in with:', email);
             const { user } = await api.signIn(email, password);
+            console.log('Sign in successful:', user);
             // Redirect to app
             navigate('/fetch');
         } catch (error) {
+            console.error('Sign in error:', error);
             setError(error.message || 'Failed to sign in');
         } finally {
             setLoading(false);
