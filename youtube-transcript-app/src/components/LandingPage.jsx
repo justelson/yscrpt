@@ -1,5 +1,4 @@
 import { Button } from './ui/button';
-import { HyperText } from './ui/hyper-text';
 import { Video, FileText, Download, Sparkles, Zap, Search, BookOpen } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { TopBar } from './TopBar';
@@ -45,7 +44,7 @@ export function LandingPage() {
                 {/* Why yscrpt? */}
                 <section className="py-12 md:py-20 px-4 md:px-6 text-center">
                     <h2 className="text-3xl md:text-4xl font-bold mb-4 md:mb-6">
-                        <HyperText>Why yscrpt?</HyperText>
+                        Why yscrpt?
                     </h2>
                     <p className="text-base md:text-xl max-w-3xl mx-auto text-muted-foreground">
                         Stop copying and pasting from YouTube. yscrpt gives you instant access to any video transcript, with AI-powered tools to summarize, analyze, and transform content in seconds.
@@ -55,7 +54,7 @@ export function LandingPage() {
                 {/* Features */}
                 <section className="py-12 md:py-20 px-4 md:px-6">
                     <h2 className="text-3xl md:text-4xl font-bold mb-8 md:mb-12 text-center">
-                        <HyperText>Everything you need. Nothing you don't</HyperText>
+                        Everything you need. Nothing you don't
                     </h2>
                     <div className="grid md:grid-cols-2 gap-8 md:gap-12 max-w-6xl mx-auto">
                         <div className="flex flex-col items-center text-center">
@@ -92,7 +91,7 @@ export function LandingPage() {
                 {/* AI Tools Section */}
                 <section className="py-12 md:py-20 px-4 md:px-6">
                     <h2 className="text-3xl md:text-4xl font-bold mb-6 md:mb-12 text-center">
-                        <HyperText>Powered by AI</HyperText>
+                        Powered by AI
                     </h2>
                     <p className="text-base md:text-xl mb-8 md:mb-12 text-center max-w-3xl mx-auto text-muted-foreground">
                         Transform transcripts into actionable insights with our suite of AI-powered tools.

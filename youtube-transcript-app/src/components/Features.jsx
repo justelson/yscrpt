@@ -1,5 +1,4 @@
 import { Button } from './ui/button';
-import { HyperText } from './ui/hyper-text';
 import { Video, Sparkles, BookOpen, Download, Zap, Search, FileText, ArrowRight, Clock, Shield, Layers } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { TopBar } from './TopBar';
@@ -84,10 +83,8 @@ export function Features() {
                         <div className="inline-block mb-3 md:mb-4 px-3 md:px-4 py-1.5 md:py-2 bg-primary/10 border border-primary/20">
                             <span className="text-xs md:text-sm font-medium text-primary">Powerful & Simple</span>
                         </div>
-                        <h1 className="text-4xl md:text-6xl font-bold mb-4 md:mb-6">
-                            <HyperText className="text-4xl md:text-6xl font-bold bg-gradient-to-r from-foreground to-foreground/70 bg-clip-text text-transparent">
-                                Powerful Features
-                            </HyperText>
+                        <h1 className="text-4xl md:text-6xl font-bold mb-4 md:mb-6 bg-gradient-to-r from-foreground to-foreground/70 bg-clip-text text-transparent">
+                            Powerful Features
                         </h1>
                         <p className="text-base md:text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
                             Everything you need to work with YouTube transcripts efficiently, all in one place
@@ -125,7 +122,7 @@ export function Features() {
                     <div className="max-w-6xl mx-auto">
                         <div className="text-center mb-10 md:mb-16">
                             <h2 className="text-3xl md:text-4xl font-bold mb-3 md:mb-4">
-                                <HyperText>And There's More</HyperText>
+                                And There's More
                             </h2>
                             <p className="text-base md:text-lg text-muted-foreground max-w-2xl mx-auto">
                                 Additional features designed to make your workflow seamless
@@ -155,7 +152,7 @@ export function Features() {
                     <div className="max-w-4xl mx-auto">
                         <div className="bg-card border border-border p-6 md:p-10 shadow-xl">
                             <h2 className="text-2xl md:text-3xl font-bold mb-6 md:mb-8 text-center">
-                                <HyperText>Why Choose yscrpt?</HyperText>
+                                Why Choose yscrpt?
                             </h2>
                             <div className="space-y-4 md:space-y-6">
                                 <div className="flex items-start gap-3 md:gap-4">

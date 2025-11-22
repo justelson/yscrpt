@@ -1,5 +1,4 @@
 import { Button } from './ui/button';
-import { HyperText } from './ui/hyper-text';
 import { Link2, FileText, Sparkles, Download, ArrowRight, CheckCircle2, MoveDown, MoveRight } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { TopBar } from './TopBar';
@@ -68,10 +67,8 @@ export function HowItWorks() {
                         <div className="inline-block mb-3 md:mb-4 px-3 md:px-4 py-1.5 md:py-2 bg-primary/10 border border-primary/20">
                             <span className="text-xs md:text-sm font-medium text-primary">Simple & Powerful</span>
                         </div>
-                        <h1 className="text-4xl md:text-6xl font-bold mb-4 md:mb-6">
-                            <HyperText className="text-4xl md:text-6xl font-bold bg-gradient-to-r from-foreground to-foreground/70 bg-clip-text text-transparent">
-                                How It Works
-                            </HyperText>
+                        <h1 className="text-4xl md:text-6xl font-bold mb-4 md:mb-6 bg-gradient-to-r from-foreground to-foreground/70 bg-clip-text text-transparent">
+                            How It Works
                         </h1>
                         <p className="text-base md:text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
                             Transform any YouTube video into actionable text in just four simple steps. No technical knowledge required.
@@ -176,7 +173,7 @@ export function HowItWorks() {
                     <div className="max-w-4xl mx-auto">
                         <div className="text-center mb-8 md:mb-12">
                             <h2 className="text-3xl md:text-4xl font-bold mb-3 md:mb-4">
-                                <HyperText>Why Choose yscrpt?</HyperText>
+                                Why Choose yscrpt?
                             </h2>
                             <p className="text-base md:text-lg text-muted-foreground">Everything you need to work smarter with video content</p>
                         </div>

@@ -43,4 +43,5 @@ export default defineConfig({
       },
     },
   },
+  publicDir: 'public', // Explicitly set public directory
 })
