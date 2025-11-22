@@ -78,38 +78,38 @@ export function Features() {
             <div className="pt-20">
 
                 {/* Hero Section */}
-                <section className="relative py-24 px-6 overflow-hidden">
+                <section className="relative py-12 md:py-24 px-4 md:px-6 overflow-hidden">
                     <div className="absolute inset-0 bg-gradient-to-b from-primary/5 via-transparent to-transparent" />
                     <div className="relative max-w-4xl mx-auto text-center">
-                        <div className="inline-block mb-4 px-4 py-2 bg-primary/10 border border-primary/20">
-                            <span className="text-sm font-medium text-primary">Powerful & Simple</span>
+                        <div className="inline-block mb-3 md:mb-4 px-3 md:px-4 py-1.5 md:py-2 bg-primary/10 border border-primary/20">
+                            <span className="text-xs md:text-sm font-medium text-primary">Powerful & Simple</span>
                         </div>
-                        <h1 className="text-6xl font-bold mb-6">
-                            <HyperText className="text-6xl font-bold bg-gradient-to-r from-foreground to-foreground/70 bg-clip-text text-transparent">
+                        <h1 className="text-4xl md:text-6xl font-bold mb-4 md:mb-6">
+                            <HyperText className="text-4xl md:text-6xl font-bold bg-gradient-to-r from-foreground to-foreground/70 bg-clip-text text-transparent">
                                 Powerful Features
                             </HyperText>
                         </h1>
-                        <p className="text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
+                        <p className="text-base md:text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
                             Everything you need to work with YouTube transcripts efficiently, all in one place
                         </p>
                     </div>
                 </section>
 
                 {/* Main Features */}
-                <section className="py-20 px-6">
+                <section className="py-12 md:py-20 px-4 md:px-6">
                     <div className="max-w-6xl mx-auto">
-                        <div className="grid md:grid-cols-2 gap-12">
+                        <div className="grid md:grid-cols-2 gap-8 md:gap-12">
                             {mainFeatures.map((feature, index) => {
                                 const Icon = feature.icon;
                                 return (
-                                    <div key={index} className="relative group">
-                                        <div className={`absolute inset-0 bg-gradient-to-br ${feature.bgGradient} blur-2xl group-hover:blur-3xl transition-all duration-500`} />
-                                        <div className="relative bg-card border border-border p-10 hover:border-primary/50 transition-all duration-500 h-full">
-                                            <div className={`w-20 h-20 bg-gradient-to-br ${feature.gradient} flex items-center justify-center mb-6 shadow-lg`}>
-                                                <Icon className="w-10 h-10 text-white" />
+                                    <div key={index} className="relative">
+                                        <div className={`absolute inset-0 bg-gradient-to-br ${feature.bgGradient} blur-2xl`} />
+                                        <div className="relative bg-card border border-border p-6 md:p-10 h-full">
+                                            <div className={`w-16 h-16 md:w-20 md:h-20 bg-gradient-to-br ${feature.gradient} flex items-center justify-center mb-4 md:mb-6 shadow-lg`}>
+                                                <Icon className="w-8 h-8 md:w-10 md:h-10 text-white" />
                                             </div>
-                                            <h3 className="text-3xl font-bold mb-4">{feature.title}</h3>
-                                            <p className="text-lg text-muted-foreground leading-relaxed">
+                                            <h3 className="text-2xl md:text-3xl font-bold mb-3 md:mb-4">{feature.title}</h3>
+                                            <p className="text-base md:text-lg text-muted-foreground leading-relaxed">
                                                 {feature.description}
                                             </p>
                                         </div>
@@ -121,26 +121,26 @@ export function Features() {
                 </section>
 
                 {/* Additional Features */}
-                <section className="py-20 px-6 bg-gradient-to-b from-transparent via-primary/5 to-transparent">
+                <section className="py-12 md:py-20 px-4 md:px-6 bg-gradient-to-b from-transparent via-primary/5 to-transparent">
                     <div className="max-w-6xl mx-auto">
-                        <div className="text-center mb-16">
-                            <h2 className="text-4xl font-bold mb-4">
+                        <div className="text-center mb-10 md:mb-16">
+                            <h2 className="text-3xl md:text-4xl font-bold mb-3 md:mb-4">
                                 <HyperText>And There's More</HyperText>
                             </h2>
-                            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+                            <p className="text-base md:text-lg text-muted-foreground max-w-2xl mx-auto">
                                 Additional features designed to make your workflow seamless
                             </p>
                         </div>
-                        <div className="grid md:grid-cols-3 gap-8">
+                        <div className="grid md:grid-cols-3 gap-6 md:gap-8">
                             {additionalFeatures.map((feature, index) => {
                                 const Icon = feature.icon;
                                 return (
-                                    <div key={index} className="bg-card border border-border p-8 hover:border-primary/50 hover:shadow-lg transition-all duration-300">
-                                        <div className="w-14 h-14 bg-primary/10 flex items-center justify-center mb-5">
-                                            <Icon className="w-7 h-7 text-primary" />
+                                    <div key={index} className="bg-card border border-border p-6 md:p-8">
+                                        <div className="w-12 h-12 md:w-14 md:h-14 bg-primary/10 flex items-center justify-center mb-4 md:mb-5">
+                                            <Icon className="w-6 h-6 md:w-7 md:h-7 text-primary" />
                                         </div>
-                                        <h3 className="text-xl font-bold mb-3">{feature.title}</h3>
-                                        <p className="text-muted-foreground leading-relaxed">
+                                        <h3 className="text-lg md:text-xl font-bold mb-2 md:mb-3">{feature.title}</h3>
+                                        <p className="text-sm md:text-base text-muted-foreground leading-relaxed">
                                             {feature.description}
                                         </p>
                                     </div>
@@ -151,38 +151,38 @@ export function Features() {
                 </section>
 
                 {/* Feature Comparison */}
-                <section className="py-20 px-6">
+                <section className="py-12 md:py-20 px-4 md:px-6">
                     <div className="max-w-4xl mx-auto">
-                        <div className="bg-card border border-border p-10 shadow-xl">
-                            <h2 className="text-3xl font-bold mb-8 text-center">
+                        <div className="bg-card border border-border p-6 md:p-10 shadow-xl">
+                            <h2 className="text-2xl md:text-3xl font-bold mb-6 md:mb-8 text-center">
                                 <HyperText>Why Choose yscrpt?</HyperText>
                             </h2>
-                            <div className="space-y-6">
-                                <div className="flex items-start gap-4">
-                                    <div className="flex-shrink-0 w-8 h-8 bg-green-500/20 flex items-center justify-center mt-1">
-                                        <div className="w-3 h-3 bg-green-500" />
+                            <div className="space-y-4 md:space-y-6">
+                                <div className="flex items-start gap-3 md:gap-4">
+                                    <div className="flex-shrink-0 w-7 h-7 md:w-8 md:h-8 bg-green-500/20 flex items-center justify-center mt-0.5 md:mt-1">
+                                        <div className="w-2.5 h-2.5 md:w-3 md:h-3 bg-green-500" />
                                     </div>
                                     <div>
-                                        <h4 className="font-semibold text-lg mb-1">No Browser Extensions Required</h4>
-                                        <p className="text-muted-foreground">Works directly in your browser without installing anything</p>
+                                        <h4 className="font-semibold text-base md:text-lg mb-1">No Browser Extensions Required</h4>
+                                        <p className="text-sm md:text-base text-muted-foreground">Works directly in your browser without installing anything</p>
                                     </div>
                                 </div>
-                                <div className="flex items-start gap-4">
-                                    <div className="flex-shrink-0 w-8 h-8 bg-green-500/20 flex items-center justify-center mt-1">
-                                        <div className="w-3 h-3 bg-green-500" />
+                                <div className="flex items-start gap-3 md:gap-4">
+                                    <div className="flex-shrink-0 w-7 h-7 md:w-8 md:h-8 bg-green-500/20 flex items-center justify-center mt-0.5 md:mt-1">
+                                        <div className="w-2.5 h-2.5 md:w-3 md:h-3 bg-green-500" />
                                     </div>
                                     <div>
-                                        <h4 className="font-semibold text-lg mb-1">Always Up-to-Date</h4>
-                                        <p className="text-muted-foreground">Automatic updates with new features and improvements</p>
+                                        <h4 className="font-semibold text-base md:text-lg mb-1">Always Up-to-Date</h4>
+                                        <p className="text-sm md:text-base text-muted-foreground">Automatic updates with new features and improvements</p>
                                     </div>
                                 </div>
-                                <div className="flex items-start gap-4">
-                                    <div className="flex-shrink-0 w-8 h-8 bg-green-500/20 flex items-center justify-center mt-1">
-                                        <div className="w-3 h-3 bg-green-500" />
+                                <div className="flex items-start gap-3 md:gap-4">
+                                    <div className="flex-shrink-0 w-7 h-7 md:w-8 md:h-8 bg-green-500/20 flex items-center justify-center mt-0.5 md:mt-1">
+                                        <div className="w-2.5 h-2.5 md:w-3 md:h-3 bg-green-500" />
                                     </div>
                                     <div>
-                                        <h4 className="font-semibold text-lg mb-1">Free to Use</h4>
-                                        <p className="text-muted-foreground">Core features are completely free with no hidden costs</p>
+                                        <h4 className="font-semibold text-base md:text-lg mb-1">Free to Use</h4>
+                                        <p className="text-sm md:text-base text-muted-foreground">Core features are completely free with no hidden costs</p>
                                     </div>
                                 </div>
                             </div>
@@ -193,22 +193,22 @@ export function Features() {
             </div>
 
             {/* CTA Section */}
-            <section className="relative overflow-hidden bg-gradient-to-br from-primary via-primary to-primary/80 py-24 text-center">
+            <section className="relative overflow-hidden bg-gradient-to-br from-primary via-primary to-primary/80 py-16 md:py-24 text-center">
                 <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiNmZmYiIGZpbGwtb3BhY2l0eT0iMC4xIj48cGF0aCBkPSJNMzYgMzRjMC0yLjIxLTEuNzktNC00LTRzLTQgMS43OS00IDQgMS43OSA0IDQgNCA0LTEuNzkgNC00em0wLTEwYzAtMi4yMS0xLjc5LTQtNC00cy00IDEuNzktNCA0IDEuNzkgNCA0IDQgNC0xLjc5IDQtNHptMC0xMGMwLTIuMjEtMS43OS00LTQtNHMtNCAxLjc5LTQgNCAxLjc5IDQgNCA0IDQtMS43OSA0LTR6Ii8+PC9nPjwvZz48L3N2Zz4=')] opacity-30" />
-                <div className="relative max-w-4xl mx-auto px-6">
-                    <h2 className="text-4xl font-bold mb-4 text-white">Ready to Get Started?</h2>
-                    <p className="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
+                <div className="relative max-w-4xl mx-auto px-4 md:px-6">
+                    <h2 className="text-3xl md:text-4xl font-bold mb-3 md:mb-4 text-white">Ready to Get Started?</h2>
+                    <p className="text-base md:text-xl text-white/90 mb-6 md:mb-8 max-w-2xl mx-auto">
                         Experience all these powerful features for free. No credit card required.
                     </p>
                     <Button
                         size="lg"
                         onClick={() => navigate('/signup')}
-                        className="bg-white text-primary hover:bg-white/90 shadow-xl text-lg px-8 py-6 h-auto"
+                        className="bg-white text-primary shadow-xl text-base md:text-lg px-6 md:px-8 py-5 md:py-6 h-auto w-full md:w-auto"
                     >
                         Try yscrpt Free
-                        <ArrowRight className="ml-2 w-5 h-5" />
+                        <ArrowRight className="ml-2 w-4 h-4 md:w-5 md:h-5" />
                     </Button>
-                    <p className="text-white/80 mt-4 text-sm">Start working smarter today</p>
+                    <p className="text-white/80 mt-3 md:mt-4 text-xs md:text-sm">Start working smarter today</p>
                 </div>
             </section>
 

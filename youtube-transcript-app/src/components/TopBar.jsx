@@ -70,25 +70,25 @@ export function TopBar() {
                     <nav className="hidden md:flex items-center space-x-6 absolute left-1/2 transform -translate-x-1/2">
                         <button
                             onClick={() => handleNavigation('/features')}
-                            className="hover:text-primary transition-colors"
+                            className="transition-colors active:text-primary"
                         >
                             Features
                         </button>
                         <button
                             onClick={() => handleNavigation('/how-it-works')}
-                            className="hover:text-primary transition-colors"
+                            className="transition-colors active:text-primary"
                         >
                             How It Works
                         </button>
                         <button
                             onClick={() => handleNavigation('/about')}
-                            className="hover:text-primary transition-colors"
+                            className="transition-colors active:text-primary"
                         >
                             About
                         </button>
                         <button
                             onClick={() => handleNavigation('/privacy')}
-                            className="hover:text-primary transition-colors"
+                            className="transition-colors active:text-primary"
                         >
                             Privacy
                         </button>
@@ -159,25 +159,25 @@ export function TopBar() {
                         <nav className="space-y-4">
                             <button
                                 onClick={() => handleNavigation('/features')}
-                                className="block w-full text-left text-lg hover:text-primary transition-colors py-2"
+                                className="block w-full text-left text-lg transition-colors py-3 active:text-primary active:bg-primary/10 rounded-md px-2"
                             >
                                 Features
                             </button>
                             <button
                                 onClick={() => handleNavigation('/how-it-works')}
-                                className="block w-full text-left text-lg hover:text-primary transition-colors py-2"
+                                className="block w-full text-left text-lg transition-colors py-3 active:text-primary active:bg-primary/10 rounded-md px-2"
                             >
                                 How It Works
                             </button>
                             <button
                                 onClick={() => handleNavigation('/about')}
-                                className="block w-full text-left text-lg hover:text-primary transition-colors py-2"
+                                className="block w-full text-left text-lg transition-colors py-3 active:text-primary active:bg-primary/10 rounded-md px-2"
                             >
                                 About
                             </button>
                             <button
                                 onClick={() => handleNavigation('/privacy')}
-                                className="block w-full text-left text-lg hover:text-primary transition-colors py-2"
+                                className="block w-full text-left text-lg transition-colors py-3 active:text-primary active:bg-primary/10 rounded-md px-2"
                             >
                                 Privacy
                             </button>

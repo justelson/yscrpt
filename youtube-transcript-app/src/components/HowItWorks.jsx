@@ -62,25 +62,25 @@ export function HowItWorks() {
             <div className="pt-20">
 
                 {/* Hero Section */}
-                <section className="relative py-24 px-6 overflow-hidden">
+                <section className="relative py-12 md:py-24 px-4 md:px-6 overflow-hidden">
                     <div className="absolute inset-0 bg-gradient-to-b from-primary/5 via-transparent to-transparent" />
                     <div className="relative max-w-4xl mx-auto text-center">
-                        <div className="inline-block mb-4 px-4 py-2 bg-primary/10 border border-primary/20">
-                            <span className="text-sm font-medium text-primary">Simple & Powerful</span>
+                        <div className="inline-block mb-3 md:mb-4 px-3 md:px-4 py-1.5 md:py-2 bg-primary/10 border border-primary/20">
+                            <span className="text-xs md:text-sm font-medium text-primary">Simple & Powerful</span>
                         </div>
-                        <h1 className="text-6xl font-bold mb-6">
-                            <HyperText className="text-6xl font-bold bg-gradient-to-r from-foreground to-foreground/70 bg-clip-text text-transparent">
+                        <h1 className="text-4xl md:text-6xl font-bold mb-4 md:mb-6">
+                            <HyperText className="text-4xl md:text-6xl font-bold bg-gradient-to-r from-foreground to-foreground/70 bg-clip-text text-transparent">
                                 How It Works
                             </HyperText>
                         </h1>
-                        <p className="text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
+                        <p className="text-base md:text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
                             Transform any YouTube video into actionable text in just four simple steps. No technical knowledge required.
                         </p>
                     </div>
                 </section>
 
                 {/* Steps Section */}
-                <section className="py-20 px-6">
+                <section className="py-12 md:py-20 px-4 md:px-6">
                     <div className="max-w-6xl mx-auto">
                         <div className="space-y-0">
                             {steps.map((step, index) => {
@@ -89,15 +89,15 @@ export function HowItWorks() {
 
                                 return (
                                     <div key={index} className="relative">
-                                        <div className={`flex flex-col ${isEven ? 'md:flex-row' : 'md:flex-row-reverse'} gap-12 items-center py-12`}>
+                                        <div className={`flex flex-col ${isEven ? 'md:flex-row' : 'md:flex-row-reverse'} gap-8 md:gap-12 items-center py-8 md:py-12`}>
                                             {/* Content Side */}
-                                            <div className="flex-1 space-y-6">
-                                                <div className="space-y-4">
-                                                    <div className={`inline-block px-4 py-1.5 bg-gradient-to-r ${step.gradient} text-white text-sm font-bold`}>
+                                            <div className="flex-1 space-y-4 md:space-y-6">
+                                                <div className="space-y-3 md:space-y-4">
+                                                    <div className={`inline-block px-3 md:px-4 py-1 md:py-1.5 bg-gradient-to-r ${step.gradient} text-white text-xs md:text-sm font-bold`}>
                                                         Step {step.number}
                                                     </div>
-                                                    <h3 className="text-4xl font-bold">{step.title}</h3>
-                                                    <p className="text-lg text-muted-foreground leading-relaxed">
+                                                    <h3 className="text-2xl md:text-4xl font-bold">{step.title}</h3>
+                                                    <p className="text-base md:text-lg text-muted-foreground leading-relaxed">
                                                         {step.description}
                                                     </p>
                                                 </div>
@@ -105,11 +105,11 @@ export function HowItWorks() {
 
                                             {/* Visual Side */}
                                             <div className="flex-1 flex justify-center">
-                                                <div className="relative group">
-                                                    <div className={`absolute inset-0 bg-gradient-to-br ${step.bgGradient} blur-2xl group-hover:blur-3xl transition-all duration-500`} />
-                                                    <div className="relative bg-card border border-border p-12 shadow-2xl group-hover:shadow-primary/20 transition-all duration-500">
-                                                        <div className={`w-32 h-32 bg-gradient-to-br ${step.gradient} flex items-center justify-center shadow-lg`}>
-                                                            <Icon className="w-16 h-16 text-white" />
+                                                <div className="relative">
+                                                    <div className={`absolute inset-0 bg-gradient-to-br ${step.bgGradient} blur-2xl`} />
+                                                    <div className="relative bg-card border border-border p-8 md:p-12 shadow-2xl">
+                                                        <div className={`w-24 h-24 md:w-32 md:h-32 bg-gradient-to-br ${step.gradient} flex items-center justify-center shadow-lg`}>
+                                                            <Icon className="w-12 h-12 md:w-16 md:h-16 text-white" />
                                                         </div>
                                                     </div>
                                                 </div>
@@ -172,21 +172,21 @@ export function HowItWorks() {
                 </section>
 
                 {/* Benefits Section */}
-                <section className="py-20 px-6 bg-gradient-to-b from-transparent via-primary/5 to-transparent">
+                <section className="py-12 md:py-20 px-4 md:px-6 bg-gradient-to-b from-transparent via-primary/5 to-transparent">
                     <div className="max-w-4xl mx-auto">
-                        <div className="text-center mb-12">
-                            <h2 className="text-4xl font-bold mb-4">
+                        <div className="text-center mb-8 md:mb-12">
+                            <h2 className="text-3xl md:text-4xl font-bold mb-3 md:mb-4">
                                 <HyperText>Why Choose yscrpt?</HyperText>
                             </h2>
-                            <p className="text-lg text-muted-foreground">Everything you need to work smarter with video content</p>
+                            <p className="text-base md:text-lg text-muted-foreground">Everything you need to work smarter with video content</p>
                         </div>
-                        <div className="grid md:grid-cols-2 gap-6">
+                        <div className="grid md:grid-cols-2 gap-4 md:gap-6">
                             {benefits.map((benefit, index) => (
-                                <div key={index} className="flex items-center gap-4 bg-card border border-border p-6 hover:border-primary/50 transition-colors">
-                                    <div className="flex-shrink-0 w-10 h-10 bg-primary/10 flex items-center justify-center">
-                                        <CheckCircle2 className="w-5 h-5 text-primary" />
+                                <div key={index} className="flex items-center gap-3 md:gap-4 bg-card border border-border p-4 md:p-6">
+                                    <div className="flex-shrink-0 w-8 h-8 md:w-10 md:h-10 bg-primary/10 flex items-center justify-center">
+                                        <CheckCircle2 className="w-4 h-4 md:w-5 md:h-5 text-primary" />
                                     </div>
-                                    <span className="text-lg font-medium">{benefit}</span>
+                                    <span className="text-base md:text-lg font-medium">{benefit}</span>
                                 </div>
                             ))}
                         </div>
@@ -196,22 +196,22 @@ export function HowItWorks() {
             </div>
 
             {/* CTA Section */}
-            <section className="relative overflow-hidden bg-gradient-to-br from-primary via-primary to-primary/80 py-24 text-center">
+            <section className="relative overflow-hidden bg-gradient-to-br from-primary via-primary to-primary/80 py-16 md:py-24 text-center">
                 <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiNmZmYiIGZpbGwtb3BhY2l0eT0iMC4xIj48cGF0aCBkPSJNMzYgMzRjMC0yLjIxLTEuNzktNC00LTRzLTQgMS43OS00IDQgMS43OSA0IDQgNCA0LTEuNzkgNC00em0wLTEwYzAtMi4yMS0xLjc5LTQtNC00cy00IDEuNzktNCA0IDEuNzkgNCA0IDQgNC0xLjc5IDQtNHptMC0xMGMwLTIuMjEtMS43OS00LTQtNHMtNCAxLjc5LTQgNCAxLjc5IDQgNCA0IDQtMS43OSA0LTR6Ii8+PC9nPjwvZz48L3N2Zz4=')] opacity-30" />
-                <div className="relative max-w-4xl mx-auto px-6">
-                    <h2 className="text-4xl font-bold mb-4 text-white">Ready to Get Started?</h2>
-                    <p className="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
+                <div className="relative max-w-4xl mx-auto px-4 md:px-6">
+                    <h2 className="text-3xl md:text-4xl font-bold mb-3 md:mb-4 text-white">Ready to Get Started?</h2>
+                    <p className="text-base md:text-xl text-white/90 mb-6 md:mb-8 max-w-2xl mx-auto">
                         Join thousands of users who are already working smarter with YouTube transcripts
                     </p>
                     <Button
                         size="lg"
                         onClick={() => navigate('/signup')}
-                        className="bg-white text-primary hover:bg-white/90 shadow-xl text-lg px-8 py-6 h-auto"
+                        className="bg-white text-primary shadow-xl text-base md:text-lg px-6 md:px-8 py-5 md:py-6 h-auto w-full md:w-auto"
                     >
                         Get Started Free
-                        <ArrowRight className="ml-2 w-5 h-5" />
+                        <ArrowRight className="ml-2 w-4 h-4 md:w-5 md:h-5" />
                     </Button>
-                    <p className="text-white/80 mt-4 text-sm">No credit card required • Free forever</p>
+                    <p className="text-white/80 mt-3 md:mt-4 text-xs md:text-sm">No credit card required • Free forever</p>
                 </div>
             </section>
 

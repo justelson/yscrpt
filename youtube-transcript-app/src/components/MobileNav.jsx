@@ -24,10 +24,10 @@ export function MobileNav() {
                         <button
                             key={item.id}
                             onClick={() => navigate(item.path)}
-                            className={`flex flex-col items-center justify-center flex-1 h-full transition-colors ${
+                            className={`flex flex-col items-center justify-center flex-1 h-full transition-colors active:scale-95 ${
                                 isActive
                                     ? 'text-primary'
-                                    : 'text-muted-foreground hover:text-foreground'
+                                    : 'text-muted-foreground'
                             }`}
                         >
                             <Icon className={`h-6 w-6 mb-1 ${isActive ? 'stroke-[2.5]' : ''}`} />

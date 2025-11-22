@@ -1,6 +1,7 @@
 import { localCache } from './cache';
 
-const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:3001';
+// Remove trailing slash from API_URL to prevent double slashes
+const API_URL = (import.meta.env.VITE_API_URL || 'http://localhost:3001').replace(/\/$/, '');
 
 class APIClient {
     async request(endpoint, options = {}) {
