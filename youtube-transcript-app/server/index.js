@@ -106,6 +106,10 @@ app.post('/api/auth/signin', async (req, res) => {
     try {
         const { email, password } = req.body;
 
+        console.log('=== SIGN IN ATTEMPT ===');
+        console.log('Email:', email);
+        console.log('Session ID before:', req.sessionID);
+
         if (!email || !password) {
             return res.status(400).json({ error: 'Email and password are required' });
         }
@@ -124,7 +128,21 @@ app.post('/api/auth/signin', async (req, res) => {
         }
 
         req.session.userId = user._id;
-        res.json({ user: { id: user._id, email: user.email, name: user.name, photoURL: user.photoURL } });
+        
+        // Explicitly save session before responding
+        req.session.save((err) => {
+            if (err) {
+                console.error('Session save error:', err);
+                return res.status(500).json({ error: 'Failed to save session' });
+            }
+            
+            console.log('Session saved successfully');
+            console.log('Session userId:', req.session.userId);
+            console.log('Session ID:', req.sessionID);
+            console.log('Session cookie:', req.session.cookie);
+            
+            res.json({ user: { id: user._id, email: user.email, name: user.name, photoURL: user.photoURL } });
+        });
     } catch (error) {
         console.error('Sign in error:', error);
         res.status(500).json({ error: 'Authentication failed' });
@@ -167,7 +185,14 @@ app.post('/api/auth/google', async (req, res) => {
 // Get current user
 app.get('/api/auth/me', async (req, res) => {
     try {
+        console.log('=== GET CURRENT USER ===');
+        console.log('Session ID:', req.sessionID);
+        console.log('Session userId:', req.session.userId);
+        console.log('Session:', req.session);
+        console.log('Cookies:', req.headers.cookie);
+        
         if (!req.session.userId) {
+            console.log('No userId in session - returning 401');
             return res.status(401).json({ error: 'Not authenticated' });
         }
 
